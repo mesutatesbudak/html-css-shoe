@@ -1,0 +1,272 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 1.5em;
+  font-family: "poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  font-size: 1.3rem;
+}
+
+.hero-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: url("../images/shoe.jpg");
+  background-size: cover;
+  background-position: 25% 25%;
+  z-index: -1;
+  -webkit-animation: introLoad 1.5s forwards;
+          animation: introLoad 1.5s forwards;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .menu {
+  width: 2.2em;
+  cursor: pointer;
+}
+
+.logo {
+  color: white;
+  font-weight: 700;
+}
+
+nav {
+  position: fixed;
+  background: white;
+  height: 100vh;
+  width: 50%;
+  top: 0;
+  right: 0;
+  z-index: 999;
+  text-transform: uppercase;
+  transform: translateX(100%);
+}
+nav .close {
+  width: 2.5em;
+  cursor: pointer;
+  float: right;
+  margin: 2em;
+}
+nav ul {
+  list-style: none;
+  margin: 8em 0 0;
+  padding: 0;
+}
+nav ul a {
+  color: black;
+  padding: 0.75em 2em;
+  display: block;
+  transition: background 0.2s ease-in-out;
+}
+nav ul a:hover {
+  background: rgb(228, 228, 228);
+}
+
+section.hero {
+  color: white;
+  height: 90vh;
+  -webkit-animation: moveDown 1.5s ease-in-out forwards;
+          animation: moveDown 1.5s ease-in-out forwards;
+  opacity: 0;
+}
+section.hero p {
+  font-size: 1.1rem;
+}
+section.hero .down-arrow {
+  stroke: white;
+  position: absolute;
+  bottom: 7em;
+  width: 1em;
+  animation: moveArrow 1s alternate-reverse infinite;
+}
+section.hero .down-arrow path {
+  fill: white;
+}
+section.hero h1 {
+  font-size: 3rem;
+  margin-top: 2em;
+  line-height: 1.2;
+}
+
+.more-info img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 15em;
+}
+.more-info .fix {
+  -o-object-position: 0 35%;
+     object-position: 0 35%;
+}
+.more-info .title {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+.more-info .desc {
+  line-height: 1.5;
+}
+
+.open-nav {
+  transform: translateX(0);
+}
+
+@media only screen and (min-width: 680px) {
+  body {
+    margin: 1.5em 5em;
+  }
+  .down-arrow {
+    margin-top: 1em;
+  }
+}
+@media only screen and (min-width: 920px) {
+  .menu {
+    display: none;
+  }
+  nav {
+    transform: translateX(0);
+    height: auto;
+    position: unset;
+    display: block;
+    width: auto;
+    background: none;
+  }
+  nav .close {
+    display: none;
+  }
+  nav ul {
+    display: flex;
+    margin: 0;
+    gap: 4em;
+  }
+  nav ul a {
+    color: white;
+    font-size: 1rem;
+    padding: 0;
+  }
+  nav ul a:hover {
+    background: none;
+    text-decoration: underline;
+  }
+  .hero-img {
+    left: unset;
+    right: 0;
+    width: 50%;
+    height: 42em;
+  }
+  .logo {
+    color: black;
+  }
+  .logo span {
+    color: red;
+  }
+  section.hero {
+    color: black;
+    height: 42em;
+    width: 40%;
+  }
+  section.hero .down-arrow {
+    stroke: black;
+    position: unset;
+  }
+  section.hero .down-arrow path {
+    fill: black;
+  }
+  .feature {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(2, auto);
+    gap: 3em;
+    margin-bottom: 6em;
+  }
+  .feature img {
+    width: 23em;
+  }
+  .feature .content {
+    text-align: right;
+    width: 23em;
+  }
+  .feature.left {
+    grid-template-areas: "left right";
+  }
+  .feature.left img {
+    grid-area: left;
+  }
+  .feature.left .content {
+    grid-area: right;
+    text-align: left;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .wrapper {
+    width: 1200px;
+    margin: 0 auto;
+  }
+  .feature {
+    gap: 0;
+  }
+}
+@-webkit-keyframes introLoad {
+  from {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  to {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+@keyframes introLoad {
+  from {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  to {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+@-webkit-keyframes moveArrow {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(40px);
+  }
+}
+@keyframes moveArrow {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(40px);
+  }
+}
+@-webkit-keyframes moveDown {
+  from {
+    transform: translateY(-100px);
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes moveDown {
+  from {
+    transform: translateY(-100px);
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}/*# sourceMappingURL=main.css.map */

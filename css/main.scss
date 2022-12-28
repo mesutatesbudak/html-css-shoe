@@ -1,0 +1,276 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 1.5em;
+  font-family: "poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  font-size: 1.3rem;
+}
+
+.hero-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: url("../images/shoe.jpg");
+  background-size: cover;
+  background-position: 25% 25%;
+  z-index: -1;
+  animation: introLoad 1.5s forwards;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .menu {
+    width: 2.2em;
+    cursor: pointer;
+  }
+}
+
+.logo {
+  color: white;
+  font-weight: 700;
+}
+
+nav {
+  position: fixed;
+  background: white;
+  height: 100vh;
+  width: 50%;
+  top: 0;
+  right: 0;
+  z-index: 999;
+  text-transform: uppercase;
+  transform: translateX(100%);
+
+  .close {
+    width: 2.5em;
+    cursor: pointer;
+    float: right;
+    margin: 2em;
+  }
+
+  ul {
+    list-style: none;
+    margin: 8em 0 0;
+    padding: 0;
+
+    a {
+      color: black;
+      padding: 0.75em 2em;
+      display: block;
+      transition: background 0.2s ease-in-out;
+
+      &:hover {
+        background: rgb(228, 228, 228);
+      }
+    }
+  }
+}
+
+section.hero {
+  color: white;
+  height: 90vh;
+  animation: moveDown 1.5s ease-in-out forwards;
+  opacity: 0;
+
+  p {
+    font-size: 1.1rem;
+  }
+
+  .down-arrow {
+    stroke: white;
+    position: absolute;
+    bottom: 7em;
+    width: 1em;
+    animation: moveArrow 1s alternate-reverse infinite;
+
+    path {
+      fill: white;
+    }
+  }
+
+  h1 {
+    font-size: 3rem;
+    margin-top: 2em;
+    line-height: 1.2;
+  }
+}
+
+.more-info {
+  img {
+    width: 100%;
+    object-fit: cover;
+    height: 15em;
+  }
+
+  .fix {
+    object-position: 0 35%;
+  }
+
+  .title {
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
+
+  .desc {
+    line-height: 1.5;
+  }
+}
+
+.open-nav {
+  transform: translateX(0);
+}
+
+@media only screen and (min-width: 680px) {
+  body {
+    margin: 1.5em 5em;
+  }
+
+  .down-arrow {
+    margin-top: 1em;
+  }
+}
+
+@media only screen and (min-width: 920px) {
+  .menu {
+    display: none;
+  }
+
+  nav {
+    transform: translateX(0);
+    height: auto;
+    position: unset;
+    display: block;
+    width: auto;
+    background: none;
+
+    .close {
+      display: none;
+    }
+
+    ul {
+      display: flex;
+      margin: 0;
+      gap: 4em;
+
+      a {
+        color: white;
+        font-size: 1rem;
+        padding: 0;
+
+        &:hover {
+          background: none;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .hero-img {
+    left: unset;
+    right: 0;
+    width: 50%;
+    height: 42em;
+  }
+
+  .logo {
+    color: black;
+
+    span {
+      color: red;
+    }
+  }
+
+  section.hero {
+    color: black;
+    height: 42em;
+    width: 40%;
+
+    .down-arrow {
+      stroke: black;
+      position: unset;
+      path {
+        fill: black;
+      }
+    }
+  }
+
+  .feature {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(2, auto);
+    gap: 3em;
+    margin-bottom: 6em;
+
+    img {
+      width: 23em;
+    }
+
+    .content {
+      text-align: right;
+      width: 23em;
+    }
+  }
+
+  .feature.left {
+    grid-template-areas: "left right";
+
+    img {
+      grid-area: left;
+    }
+
+    .content {
+      grid-area: right;
+      text-align: left;
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .wrapper {
+    width: 1200px;
+    margin: 0 auto;
+  }
+
+  .feature {
+    gap: 0;
+  }
+}
+
+@keyframes introLoad {
+  from {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  to {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+@keyframes moveArrow {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(40px);
+  }
+}
+
+@keyframes moveDown {
+  from {
+    transform: translateY(-100px);
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
